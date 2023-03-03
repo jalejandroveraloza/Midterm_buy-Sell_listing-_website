@@ -1,40 +1,32 @@
 -- Drop and recreate Users table (Example)
-DROP TABLE IF EXISTS categories CASCADE;
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS products CASCADE;
-DROP TABLE IF EXISTSfavourite_products CASCADE;
+DROP TABLE IF EXISTS favourite_products CASCADE;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
-  first_name VARCHAR(255) NOT NULL,
-  last_name VARCHAR(255) NOT NULL,
+  name VARCHAR(255) NOT NULL,
   phone SMALLINT NOT NULL,
   email VARCHAR(255) NOT NULL,
-  address SMALLINT NOT NULL
+  address SMALLINT NOT NULL,
+  is_admin BOOLEAN NOT NULL DEFAULT false
 );
-
-CREATE TABLE categories (
-  id SERIAL PRIMARY KEY NOT NULL,
-  name VARCHAR (255) NOT NULL,
-  type VARCHAR (255) NOT NULL,
-  owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE
-)
-
 
 CREATE TABLE products (
   id SERIAL PRIMARY KEY NOT NULL,
-  owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  categories INTEGER REFERENCES categories(id) ON DELETE CASCADE,
-  name VARCHAR(255) NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   price SMALLINT NOT NULL,
   description TEXT NOT NULL,
   brand VARCHAR(255) NOT NULL,
+  thumbnail_url VARCHAR(255) NOT NULL,
   photo_url VARCHAR(255) NOT NULL,
+  size INTEGER NOT NULL,
   active BIT NOT NULL
-)
+);
 
-CREATE TABLE favorite_products (
+CREATE TABLE favourite_products (
 id SERIAL PRIMARY KEY NOT NULL,
-buyer_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
 product_id INTEGER REFERENCES products(id) ON DELETE CASCADE
-)
+);
