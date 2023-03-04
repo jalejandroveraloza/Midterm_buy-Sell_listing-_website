@@ -12,17 +12,8 @@ CREATE TABLE users (
   is_admin BOOLEAN NOT NULL DEFAULT false
 );
 
-<<<<<<< HEAD
-CREATE TABLE categories (
-  id SERIAL PRIMARY KEY NOT NULL,
-  name VARCHAR (255) NOT NULL,
-  type VARCHAR (255) NOT NULL,
-  owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE
-);
 
 
-=======
->>>>>>> 99090a2d24ecad25b618e2d326a1c838d0e85dc2
 CREATE TABLE products (
   id SERIAL PRIMARY KEY NOT NULL,
   title VARCHAR(255) NOT NULL,
