@@ -7,10 +7,6 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require("body-parser");
 const cookieSession = require('cookie-session');
-
-
-
-
 const PORT = process.env.PORT || 8080;
 const app = express();
 
@@ -56,7 +52,7 @@ const adminRoutes = require("./routes/admin");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
-app.use("/users", usersRoutes(db));
+app.use("/api/users", usersRoutes(db));
 app.use("/products", productRoutes(db));
 app.use("/favourites", favouritesRoutes(db));
 app.use("/", searchRoutes(db));
@@ -72,10 +68,13 @@ app.use("/admin", adminRoutes(db));
 app.get("/", (req, res) => {
   db.query(`SELECT * FROM users WHERE is_admin = true; SELECT * FROM products;`)
     .then(data => {
+      console.log(data[0]);
+      console.log(data[1].rows);
+
       const currentUser = req.session.user_id;
-      const adminData = data.rows[0];
-      const theProducts = data.rows.slice(1);
-      console.log("the products", theProducts)
+      const adminData = data[0].rows;//result firs query
+      const theProducts = data[1].rows;//result second query
+      //console.log("the products", theProducts)
       const templateVars = { products: theProducts, currentUser: currentUser, admin: adminData }
       res.render("index", templateVars);
     })
