@@ -24,7 +24,7 @@
   <div class="jumbotron jumbotron-fluid">
     <div class="jumbotron-container">
       <div class="jumbotron-container_image">
-      <img src="<%= products[0].thumbnail_photo %>">
+      <img src="<%= https://media.istockphoto.com/id/910031152/photo/very-fast-snowboarder-slides-at-ski-slope.jpg?s=1024x1024&w=is&k=20&c=ffri17MSie3heLUzS28MgQFU2lvWpZlgv_eBOlsEdPY= %>">
       </div>
       <div class="jumbotron-container_content">
         <h1 class="display-4">It's Time to Shred</h1>
@@ -36,7 +36,7 @@
 
   <div class="index-container">
 
-    <h2 class="all-shoe-title">Featured Releases</h3>
+    <h3 class="all-shoe-title">Featured Releases</h3>
       <div class="featured_sneakers">
         <% for (let product of products) { %>
           <% if(product.feature) { %>
@@ -49,7 +49,7 @@
                     <h5 class="card-title">
                       <%= product.title %>
                     </h5>
-                    <p class="card-text"> $<%= product.price%>
+                    <p class="card-text"> $<%= product.price %>
                     </p>
                     <a href="http://localhost:8080/products/<%=product.id%>" class="btn btn-dark">See Product</a>
                   </div>
@@ -57,22 +57,21 @@
             <% } %>
               <% } %>
       </div>
-      <hr>
 
 
-      <h2>All shoes</h3>
+      <h3>All shoes</h3>
         <div class="all_shoes">
           <% for (let product of products) { %>
             <div class="card">
-              <img class="card-img-top shoe_image" src="<%= product.thumbnail_photo %>" alt="Card image cap">
-              <% if (product.sold) { %>
+              <img class="card-img-top shoe_image" src="<%= https://previews.123rf.com/images/djvstock/djvstock1802/djvstock180214029/96445159-avatar-man-with-snowboard-equipment-icon-over-white-background-colorful-design-vector-illustration.jpg %>" alt="Card image cap">
+              <% if (!product.active) { %>
                 <div class="sold-banner">SOLD</div>
                 <% } %>
                   <div class="card-body">
                     <h5 class="card-title">
                       <%= product.title %>
                     </h5>
-                    <p class="card-text"> $<%= product.price%>
+                    <p class="card-text"> $<%= product.price %>
                     </p>
                     <a href="http://localhost:8080/products/<%=product.id%>" class="btn btn-dark">See Product</a>
                   </div>
