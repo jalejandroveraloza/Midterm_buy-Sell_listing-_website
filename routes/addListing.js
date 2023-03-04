@@ -24,7 +24,7 @@ router.get("/listing", (req, res) => {
   });
 
   //add product form
-  router.post("/listing",(req, res) => {
+  router.post("/addlisting",(req, res) => {
 
     const title = req.body.title;
     const description = req.body.description;
