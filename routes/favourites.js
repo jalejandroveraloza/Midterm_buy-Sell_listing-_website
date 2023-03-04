@@ -23,8 +23,8 @@ module.exports = (db) => {
       })
     db.query(`SELECT * FROM users WHERE users.is_admin = true; SELECT * FROM products JOIN favourite_products ON product_id = products.id WHERE favourites.user_id = ${req.session.user_id.id};`)
       .then(data => {
-        const userFavourites = data.rows.slice(1);
-        const adminData = data.rows[0];
+        const userFavourites = data[1].rows;
+        const adminData = data[0].rows;
         const currentUser = req.session.user_id;
         const templateVars = { products: userFavourites, currentUser: currentUser, admin: adminData }
         res.render("favourites", templateVars);
@@ -38,8 +38,9 @@ module.exports = (db) => {
 
   // Add item to favourites list on product page
   router.post("/new", (req, res) => {
+    console.log(req.session.user_id)
     const currentUser = req.session.user_id;
-    const currentProduct = req.body.prodID;
+    const currentProduct = req.body.product_id;
     db.query(`INSERT INTO favourite_products (user_id, product_id)
     VALUES (${currentUser.id}, ${currentProduct})
     RETURNING *;`)
