@@ -8,8 +8,8 @@ router.get("/listing", (req, res) => {
   db.query(`SELECT * FROM users WHERE is_admin = true; SELECT * FROM products;`)
     .then(data => {
       const currentUser = req.session.user_id;
-      const adminData = data.rows[0];
-      const products = data.rows.slice(1);
+      const adminData = data[0].rows;
+      const products = data[1].rows;
       const templateVars = { products: products, currentUser: currentUser, admin: adminData }
       if (!templateVars.currentUser) {
         res.json({result:"Unauthorized Access"})
@@ -42,7 +42,7 @@ router.get("/listing", (req, res) => {
     db.query(queryString, queryParams)
     .then(data => {
       const currentUser = req.session.user_id
-      const products = data.rows[0];
+      const products = data[0].rows;
       const templateVars = { products: products, currentUser: currentUser, admin: undefined, message: "Your product has been added" }
       res.render("product_id", templateVars);
     })
