@@ -19,8 +19,8 @@ module.exports = (db) => {
     db.query(queryString)
     .then(data => {
       const user = req.session.user_id;
-      const adminData = data.rows[0];
-      const products = data.rows.slice(1);
+      const adminData = data[0].rows;
+      const products = data[1].rows;
       const templateVars = { products: products, currentUser: user, admin: adminData }
       res.render("search", templateVars)
     })
