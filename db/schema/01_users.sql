@@ -6,9 +6,9 @@ DROP TABLE IF EXISTS favourite_products CASCADE;
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR(255) NOT NULL,
-  phone SMALLINT NOT NULL,
+  phone VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
-  address SMALLINT NOT NULL,
+  address VARCHAR(255) NOT NULL,
   is_admin BOOLEAN NOT NULL DEFAULT false
 );
 
@@ -22,7 +22,7 @@ CREATE TABLE products (
   thumbnail_url VARCHAR(255) NOT NULL,
   photo_url VARCHAR(255) NOT NULL,
   size INTEGER NOT NULL,
-  active BIT NOT NULL
+  active BOOLEAN NOT NULL
 );
 
 CREATE TABLE favourite_products (
