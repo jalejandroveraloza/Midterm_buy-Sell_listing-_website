@@ -24,6 +24,8 @@ module.exports = (db) => {
     });
   });
 
+
+  //strech feature **
   // Send message to seller on product page
   router.post("/message", (req, res) => {
     db.query(`SELECT * FROM users;`)
