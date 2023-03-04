@@ -19,7 +19,60 @@
 </head>
 
 <body>
-  <h1>Have fun! 🥔</h1>
+  <%- include('_header'); %>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron-container">
+      <div class="jumbotron-container_image">
+        <img src="<%= products[0].thumbnail_photo %>">
+      </div>
+      <div class="jumbotron-container_content">
+        <h1 class="display-4">It's Time to Shred</h1>
+        <p class="lead">Get a Snowboard for any occasion.</p>
+        <a class="btn btn-dark btn-lg search-button" href="/search" role="button">Search</a>
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="index-container">
+
+  <h2 class = "all-shoe-title">Featured Releases</h3>
+  <div class = "featured_sneakers">
+    <% for (let product of products) { %>
+      <% if(product.feature) { %>
+        <div class="card">
+          <img class="card-img-top" src="<%= product.thumbnail_photo %>" alt="Card image cap">
+            <% if (product.sold) { %>
+              <div class="sold-banner">SOLD</div>
+            <% } %>
+          <div class="card-body">
+            <h5 class="card-title"><%= product.title %></h5>
+            <p class="card-text"> $<%= product.price%></p>
+            <a href="http://localhost:8080/products/<%=product.id%>" class="btn btn-dark">See Product</a>
+          </div>
+        </div>
+        <%  } %>
+    <% } %>
+  </div>
+  <hr>
+
+
+  <h2>All shoes</h3>
+  <div class="all_shoes">
+  <% for (let product of products) { %>
+    <div class="card">
+      <img class="card-img-top shoe_image" src="<%= product.thumbnail_photo %>" alt="Card image cap">
+      <% if (product.sold) { %>
+        <div class="sold-banner">SOLD</div>
+      <% } %>
+      <div class="card-body">
+        <h5 class="card-title" ><%= product.title %></h5>
+        <p class="card-text"> $<%= product.price%></p>
+        <a href="http://localhost:8080/products/<%=product.id%>" class="btn btn-dark">See Product</a>
+      </div>
+    </div>
+  <% } %>
 </body>
 
 </html>
