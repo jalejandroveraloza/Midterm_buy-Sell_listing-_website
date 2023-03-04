@@ -34,7 +34,7 @@ module.exports = (db) => {
     .then(data => {
       const currentUser = req.session.user_id;
       console.log("data.rows from login", data.rows)
-      const templateVars = { currentUser: currentUser, admin: data.rows[0] }
+      const templateVars = { currentUser: currentUser, admin: data[0].rows }
       res.render("login", templateVars);
     })
     .catch(err => {
@@ -59,7 +59,7 @@ module.exports = (db) => {
   router.post('/login', (req, res) => {
     db.query(`SELECT * FROM users WHERE email = '${req.body.email}';`)
     .then(data => {
-      const user = data.rows[0];
+      const user = data[0].rows;
       if (user) {
       req.session.user_id = user
       res.redirect("/");
