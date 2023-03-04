@@ -6,6 +6,8 @@ const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require("body-parser");
+const cookieSession = require('cookie-session');
+
 
 
 
@@ -37,6 +39,10 @@ app.use(
   })
 );
 app.use(express.static('public'));
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2'],
+}));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
@@ -62,21 +68,22 @@ app.use("/admin", adminRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
+
 app.get("/", (req, res) => {
   db.query(`SELECT * FROM users WHERE is_admin = true; SELECT * FROM products;`)
-  .then(data => {
-    const currentUser = req.session.user_id;
-    const adminData = data.rows[0];
-    const theProducts = data.rows.slice(1);
-    console.log("the products", theProducts)
-    const templateVars = { products: theProducts, currentUser: currentUser, admin: adminData }
-    res.render("index", templateVars);
-  })
-  .catch(err => {
-    res
-      .status(500)
-      .json({ error: err.message });
-  });
+    .then(data => {
+      const currentUser = req.session.user_id;
+      const adminData = data.rows[1];
+      const theProducts = data.rows.slice(1);
+      console.log("the products", theProducts)
+      const templateVars = { products: theProducts, currentUser: currentUser, admin: adminData }
+      res.render("index", templateVars);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
 });
 
 app.listen(PORT, () => {
