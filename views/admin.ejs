@@ -22,10 +22,10 @@
 </head>
 <body>
 
-  <li%- include('_header'); %>
+  <%- include('partials/_header') %>
 
-  <li% if (currentUser && admin) { %>
-    <li%  if (currentUser.id === admin.id) { %>
+  <% if (currentUser && admin) { %>
+    <%  if (currentUser.id === admin.id) { %>
   <main style="margin: 1em;">
     <h4>Admin</h4>
     <table class="table">

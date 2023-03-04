@@ -12,10 +12,10 @@ module.exports = (db) => {
     .then(data => {
       console.log("data.rows: ", data.rows)
       const currentUser = req.session.user_id;
-      const adminData = data.rows[0];
-      const products = data.rows[1];
+      const adminData = data[0].rows;
+      const products = data[1].rows;
       const templateVars = { products: products, currentUser: currentUser, message: "", admin: adminData };
-      res.render("product_id", templateVars);
+      res.render("products", templateVars);
     })
     .catch(err => {
       res
