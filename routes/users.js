@@ -33,8 +33,8 @@ module.exports = (db) => {
     db.query(`SELECT * FROM users;`)
     .then(data => {
       const currentUser = req.session.user_id;
-      console.log("data.rows from login", data.rows)
-      const templateVars = { currentUser: currentUser, admin: data[0].rows }
+      //console.log("data.rows from login", data[0].rows)
+      const templateVars = { currentUser, admin: data.rows }
       res.render("login", templateVars);
     })
     .catch(err => {
@@ -47,7 +47,7 @@ module.exports = (db) => {
   router.get('/login/:id', (req, res) => {
     const currentUser = users[req.session.user_id]
     req.session.user_id = req.params.id;
-    const templateVars = { currentUser: currentUser };
+    const templateVars = { currentUser };
     console.log("req: ", req)
     console.log("templateVars: ", templateVars)
     res.render("index", templateVars);
@@ -59,7 +59,7 @@ module.exports = (db) => {
   router.post('/login', (req, res) => {
     db.query(`SELECT * FROM users WHERE email = '${req.body.email}';`)
     .then(data => {
-      const user = data[0].rows;
+      const user = data.rows;
       if (user) {
       req.session.user_id = user
       res.redirect("/");
