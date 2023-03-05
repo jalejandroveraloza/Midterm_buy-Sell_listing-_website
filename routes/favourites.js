@@ -21,12 +21,12 @@ module.exports = (db) => {
         }
         return userFavourites;
       })
-    db.query(`SELECT * FROM users WHERE users.is_admin = true; SELECT * FROM products JOIN favourite_products ON product_id = products.id WHERE favourites.user_id = ${req.session.user_id.id};`)
+    db.query(`SELECT * FROM users WHERE users.is_admin = true; SELECT * FROM products JOIN favourite_products ON product_id = products.id WHERE favourite_products.user_id = ${req.session.user_id.id};`)
       .then(data => {
         const userFavourites = data[1].rows;
         const adminData = data[0].rows;
         const currentUser = req.session.user_id;
-        const templateVars = { products: userFavourites, currentUser: currentUser, admin: adminData }
+        const templateVars = { products: userFavourites, currentUser, admin: adminData }
         res.render("favourites", templateVars);
       })
       .catch(err => {
