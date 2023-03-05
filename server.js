@@ -64,7 +64,7 @@ app.use("/admin", adminRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
-
+//use the individual user object as opposed to the admin object (grabs all admins) to check if user is an admin.
 app.get("/", (req, res) => {
   db.query(`SELECT * FROM users WHERE is_admin = true; SELECT * FROM products;`)
     .then(data => {
