@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/jpg" href="https://i.ibb.co/9bvfZWB/lightkicks.jpg">
+
+  <!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+  <title>Add Snowboard</title>
+</head>
+<body>
+
+  <%- include('partials/_header'); %>
+
+  <% if (currentUser && admin) { %>
+  <%  if (currentUser.id === admin.id) { %>
+  <main style="margin: 1em;">
+    <h3 class="addshoe-title">Add Snowboard</h3>
+  <div class= "add-shoe-form-container">
+<!-- Form Starts -->
+  <form class="add-shoe-form" method="POST" action="/addproduct">
+    <div class="form-group">
+      <input name="title" placeholder="Shoe Name" class="form-control" rows="3"></input>
+    </div>
+    <div class="form-group">
+      <textarea name="description" placeholder="Description" class="form-control" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+      <label>Add a thumbnail photo URL</label>
+      <input name="thumbnail_photo" type="text" class="form-control-file">
+    </div>
+    <div class="form-group">
+      <label>Add a main photo URL</label>
+      <input name="main_photo" type="text" class="form-control-file">
+    </div>
+    <div class="form-group">
+      <input name="brand" placeholder="Brand" class="form-control"></input>
+    </div>
+    <div class="row">
+      <div class="col">
+        <input name="size" type="number" min="1" class="form-control" placeholder="Size">
+      </div>
+      <div class="col">
+        <input name="price" type="number" min="1" class="form-control" placeholder="Price">
+      </div>
+    </div>
+    <div class="row featured-row">
+      <label>Mark as featured</label>
+        <select name="feature">
+          <option selected>Featured</option>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+
+    </div>
+    <button type="submit" class="btn btn-primary btn-add-shoe">Submit</button>
+  </form>
+</div>
+<% } %>
+<% } %>
+
+ <!-- Bootstrap JS -->
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
