@@ -65,7 +65,7 @@
           <% for (let product of products) { %>
             <div class="card">
               <img class="card-img-top shoe_image" src="<%= product.thumbnail_photo %>" alt="Card image cap">
-              <% if (product.sold) { %>
+              <% if (!product.active) { %>
                 <div class="sold-banner">SOLD</div>
                 <% } %>
                   <div class="card-body">
