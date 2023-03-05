@@ -12,7 +12,7 @@
 <!-- Scripts -->
 <script src="/scripts/app.js"></script>
 
-  <title><%= products.title %></title>
+  <title><%= product.title %></title>
 </head>
 <body>
 
@@ -30,19 +30,19 @@
 
   <div class= "product-id">
     <div class="card">
-      <img class="card-img-top" src="<%= products.thumbnail_photo %>" alt="Card image cap">
+      <img class="card-img-top" src="<%= product.thumbnail_photo %>" alt="Card image cap">
       <div class="card-body">
-        <% if (products.sold) { %>
+        <% if (!product.active) { %>
           <div class="sold-banner">SOLD</div>
         <% } %>
-        <h5 class="card-title"><%= products.title %></h5>
+        <h5 class="card-title"><%= product.title %></h5>
         <label>Description</label>
-        <p class="card-text"><%= products.description %></p>
+        <p class="card-text"><%= product.description %></p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Brand: <%=products.brand%></li>
-        <li class="list-group-item">Size: <%=products.size%></li>
-        <li class="list-group-item">Price: <%=products.price%></li>
+        <li class="list-group-item">Brand: <%=product.brand%></li>
+        <li class="list-group-item">Size: <%=product.size%></li>
+        <li class="list-group-item">Price: <%=product.price%></li>
       </ul>
     </div>
 
@@ -50,7 +50,7 @@
   <div class= buttons-product-id>
     <div class="add-to-favourites">
       <form class= "form-inline" action="/favourites/new" method="POST">
-        <input type="hidden" name="prodID" value="<%= products.id %>" />
+        <input type="hidden" name="prodID" value="<%= product.id %>" />
 
 
         <button id="fav" type="submit" class="btn btn-outline-dark"> Add to favourites</button>
