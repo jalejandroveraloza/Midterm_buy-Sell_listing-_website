@@ -24,7 +24,7 @@ CREATE TABLE products (
   thumbnail_url VARCHAR(255) NOT NULL,
   photo_url VARCHAR(255) NOT NULL,
   size INTEGER NOT NULL,
-  active BOOLEAN NOT NULL
+  active BOOLEAN NOT NULL DEFAULT true
 );
 
 CREATE TABLE favourite_products (
