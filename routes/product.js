@@ -13,8 +13,8 @@ module.exports = (db) => {
       console.log("data.rows: ", data.rows)
       const currentUser = req.session.user_id;
       const adminData = data[0].rows;
-      const products = data[1].rows;
-      const templateVars = { products: products, currentUser: currentUser, message: "", admin: adminData };
+      const product = data[1].rows[0];
+      const templateVars = { product, currentUser, message: "", admin: adminData };
       res.render("products", templateVars);
     })
     .catch(err => {
