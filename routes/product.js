@@ -10,7 +10,7 @@ module.exports = (db) => {
     db.query(`SELECT * FROM users where users.is_admin = true;
     SELECT * FROM products WHERE id = ${id};`)
     .then(data => {
-      console.log("data.rows: ", data.rows)
+      //console.log("data.rows: ", data.rows)
       const currentUser = req.session.user_id;
       const adminData = data[0].rows;
       const product = data[1].rows[0];

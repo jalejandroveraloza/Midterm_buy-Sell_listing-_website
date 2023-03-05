@@ -38,12 +38,15 @@ module.exports = (db) => {
 
   // Add item to favourites list on product page
   router.post("/new", (req, res) => {
-    console.log(req.session.user_id)
+    //console.log(req.session.user_id)
     const currentUser = req.session.user_id;
     const currentProduct = req.body.product_id;
+    console.log('currentUser:', currentUser);
+    console.log('currentProduct:', currentProduct);
+
     db.query(`INSERT INTO favourite_products (user_id, product_id)
-    VALUES (${currentUser.id}, ${currentProduct})
-    RETURNING *;`)
+    VALUES ($1, $2)
+    RETURNING *;`, [currentUser, currentProduct])
       .then(data => {
         res.redirect("/favourites")
       })

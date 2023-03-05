@@ -30,7 +30,7 @@ module.exports = (db) => {
 
   router.get("/login", (req, res) => {
 
-    db.query(`SELECT * FROM users;`)
+    db.query(`SELECT * FROM users WHERE is_admin = true;`)
     .then(data => {
       const currentUser = req.session.user_id;
       //console.log("data.rows from login", data[0].rows)
@@ -59,7 +59,7 @@ module.exports = (db) => {
   router.post('/login', (req, res) => {
     db.query(`SELECT * FROM users WHERE email = '${req.body.email}';`)
     .then(data => {
-      const user = data.rows;
+      const user = data.rows[0];
       if (user) {
       req.session.user_id = user
       res.redirect("/");

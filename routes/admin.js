@@ -12,7 +12,7 @@ module.exports = (db) => {
         const adminData = data[0].rows;
         const products = data[1].rows;
         const templateVars = { products: products, currentUser: currentUser, admin: adminData };
-        console.log("currentuser: ", templateVars.currentUser)
+        //console.log("currentuser: ", templateVars.currentUser)
         if (!templateVars.currentUser) {
           res.json({result:"Unauthorized Access"})
           }
