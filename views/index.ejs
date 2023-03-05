@@ -35,49 +35,24 @@
   </div>
 
   <div class="index-container">
-
-    <h2 class="all-shoe-title">Featured Releases</h3>
-      <div class="featured_sneakers">
-        <% for (let product of products) { %>
-          <% if(product.feature) { %>
-            <div class="card">
-              <img class="card-img-top" src="<%= product.thumbnail_photo %>" alt="Card image cap">
-              <% if (product.sold) { %>
-                <div class="sold-banner">SOLD</div>
-                <% } %>
-                  <div class="card-body">
-                    <h5 class="card-title">
-                      <%= product.title %>
-                    </h5>
-                    <p class="card-text"> $<%= product.price%>
-                    </p>
-                    <a href="http://localhost:8080/products/<%=product.id%>" class="btn btn-dark">See Product</a>
-                  </div>
-            </div>
+    <h3>All boards</h3>
+    <div class="all_snowboards">
+      <% for (let product of products) { %>
+        <div class="card">
+          <img class="card-img-top shoe_image" src="<%= product.thumbnail_photo %>" alt="Card image cap">
+          <% if (!product.active) { %>
+            <div class="sold-banner">SOLD</div>
             <% } %>
-              <% } %>
-      </div>
-      <h2>
-
-
-      <h3>All boards</h3>
-        <div class="all_snowboards">
-          <% for (let product of products) { %>
-            <div class="card">
-              <img class="card-img-top shoe_image" src="<%= product.thumbnail_photo %>" alt="Card image cap">
-              <% if (!product.active) { %>
-                <div class="sold-banner">SOLD</div>
-                <% } %>
-                  <div class="card-body">
-                    <h5 class="card-title">
-                      <%= product.title %>
-                    </h5>
-                    <p class="card-text"> $<%= product.price%>
-                    </p>
-                    <a href="http://localhost:8080/products/<%=product.id%>" class="btn btn-dark">See Product</a>
-                  </div>
-            </div>
-            <% } %>
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= product.title %>
+                </h5>
+                <p class="card-text"> $<%= product.price%>
+                </p>
+                <a href="http://localhost:8080/products/<%=product.id%>" class="btn btn-dark">See Product</a>
+              </div>
+        </div>
+        <% } %>
 </body>
 
 </html>
