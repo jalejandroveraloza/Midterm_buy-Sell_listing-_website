@@ -15,21 +15,13 @@
         </div>
 
         <!-- if user is an admin -->
-        <% } if (currentUser && admin) { %>
-          <% if (currentUser.id===admin.id) { %>
-            <div class="navbar-nav">
-              <a class="nav-item nav-link" href="/admin">Admin</a>
-              <a class="nav-item nav-link" href="/addlisting">Add Product</a>
-            </div>
-            <% } %>
-      </div>
-      <div>
-        <form class="form-inline login-as" action="/api/users/logout" method="POST">
-          <div style="margin-right: 7px;">
-            <%= currentUser.email %>
-          </div>
-          <button type="submit" class="header-btn">Logout</button>
-        </form>
+    <% } if (currentUser) { %>
+      <%  if (currentUser.id) { %>
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="/admin">Admin</a>
+          <a class="nav-item nav-link" href="/addListing" action ="/addListing/" method="POST">Add Product</a>
+        </div>
+      <% } %>
       </div>
 
       <!-- if user is logged out -->

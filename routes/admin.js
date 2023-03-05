@@ -41,7 +41,7 @@ module.exports = (db) => {
 
     // Mark items as sold in admin page
     router.post("/active", (req, res) => {
-      const queryString = `UPDATE products SET sold = true WHERE products.id = $1;`
+      const queryString = `UPDATE products SET active = false WHERE products.id = $1;`
       db.query(queryString, [req.body.product_id])
       .then(data => {
         console.log("data.rows", data.rows)

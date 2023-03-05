@@ -15,13 +15,13 @@
 
   <%- include('partials/_header'); %>
 
-  <% if (currentUser && admin) { %>
-  <%  if (currentUser === admin.id) { %>
+  <% if (currentUser) { %>
+  <%  if (currentUser.id) { %>
   <main style="margin: 1em;">
     <h3 class="addshoe-title">Add Snowboard</h3>
   <div class= "add-shoe-form-container">
 <!-- Form Starts -->
-  <form class="add-shoe-form" method="POST" action="/addproduct">
+  <form class="add-shoe-form" method="POST" action="/addListing">
     <div class="form-group">
       <input name="title" placeholder="Shoe Name" class="form-control" rows="3"></input>
     </div>
@@ -30,11 +30,11 @@
     </div>
     <div class="form-group">
       <label>Add a thumbnail photo URL</label>
-      <input name="thumbnail_photo" type="text" class="form-control-file">
+      <input name="thumbnail_url" type="text" class="form-control-file">
     </div>
     <div class="form-group">
       <label>Add a main photo URL</label>
-      <input name="main_photo" type="text" class="form-control-file">
+      <input name="photo_url" type="text" class="form-control-file">
     </div>
     <div class="form-group">
       <input name="brand" placeholder="Brand" class="form-control"></input>
