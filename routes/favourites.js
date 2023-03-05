@@ -15,7 +15,7 @@ module.exports = (db) => {
         // Adding user favourites to new object
         let userFavourites = {};
         for (let key in data.rows) {
-          if (data.rows[key].id === currentUser.id) {
+          if (data.rows[key].id === currentUser) {
             userFavourites[key] = data.rows[key];
           }
         }
@@ -36,9 +36,8 @@ module.exports = (db) => {
       });
   });
 
-  // Add item to favourites list on product page
+  //Add item to favourites list on product page
   router.post("/new", (req, res) => {
-    //console.log(req.session.user_id)
     const currentUser = req.session.user_id;
     const currentProduct = req.body.prodID;
     console.log('currentUser:', currentUser);
@@ -51,11 +50,12 @@ module.exports = (db) => {
         res.redirect("/favourites")
       })
       .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
+        res.status(500).json({ error: err.message });
       });
   });
+
+
+
 
   // Deleting item from favourites list on favourites page
   router.post("/delete", (req, res) => {

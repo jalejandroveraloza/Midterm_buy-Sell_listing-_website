@@ -16,7 +16,7 @@
   <%- include('partials/_header'); %>
 
   <% if (currentUser && admin) { %>
-  <%  if (currentUser.id === admin.id) { %>
+  <%  if (currentUser === admin.id) { %>
   <main style="margin: 1em;">
     <h3 class="addshoe-title">Add Snowboard</h3>
   <div class= "add-shoe-form-container">
