@@ -4,12 +4,12 @@ const router  = express.Router();
 module.exports = (db) => {
 
 //add a new product page (admin access only)
-router.get("/listing", (req, res) => {
+router.get("/addListing", (req, res) => {
   db.query(`SELECT * FROM users WHERE is_admin = true; SELECT * FROM products;`)
     .then(data => {
       const currentUser = req.session.user_id;
       const adminData = data[0].rows;
-      const products = data[1].rows;
+      const products = data[1].rows[1];
       const templateVars = { products: products, currentUser, admin: adminData }
       if (!templateVars.currentUser) {
         res.json({result:"Unauthorized Access"})
@@ -24,7 +24,7 @@ router.get("/listing", (req, res) => {
   });
 
   //add product form
-  router.post("/addlisting",(req, res) => {
+  router.post("/addListing",(req, res) => {
 
     const title = req.body.title;
     const description = req.body.description;
@@ -42,9 +42,9 @@ router.get("/listing", (req, res) => {
     db.query(queryString, queryParams)
     .then(data => {
       const currentUser = req.session.user_id
-      const products = data[0].rows;
-      const templateVars = { products: products, currentUser: currentUser, admin: undefined, message: "Your product has been added" }
-      res.render("product_id", templateVars);
+      const products = data.rows[1];
+      const templateVars = { products, currentUser, admin: undefined, message: "Your product has been added" }
+      res.render("product_add", templateVars);
     })
     .catch(err => {
       res.status(500)
