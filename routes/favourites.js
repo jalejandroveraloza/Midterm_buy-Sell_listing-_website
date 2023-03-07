@@ -43,6 +43,10 @@ module.exports = (db) => {
     console.log('currentUser:', currentUser);
     console.log('currentProduct:', currentProduct);
 
+    if (!currentUser) {
+      return res.status(401).send("<html><body>Please <a href=\"/api/users/login\">login</a> to continue</body></html>\n");
+    }
+
     db.query(`INSERT INTO favourite_products (user_id, product_id)
     VALUES ($1, $2)
     RETURNING *;`, [currentUser.id, currentProduct])
