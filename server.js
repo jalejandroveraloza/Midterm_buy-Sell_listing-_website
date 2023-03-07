@@ -68,14 +68,9 @@ app.use("/admin", adminRoutes(db));
 app.get("/", (req, res) => {
   db.query(`SELECT * FROM users WHERE is_admin = true; SELECT * FROM products;`)
     .then(data => {
-      console.log(data[0]);
-      console.log(data[1].rows);
-
       const currentUser = req.session.user_id;
-      const adminData = data[0].rows;//result firs query
       const theProducts = data[1].rows;//result second query
-      //console.log("the products", theProducts)
-      const templateVars = { products: theProducts, currentUser: currentUser, admin: adminData }
+      const templateVars = { products: theProducts, currentUser: currentUser }
       res.render("index", templateVars);
     })
     .catch(err => {
