@@ -24,6 +24,7 @@ CREATE TABLE products (
   thumbnail_url VARCHAR(255) NOT NULL,
   photo_url VARCHAR(255) NOT NULL,
   size INTEGER NOT NULL,
+  feature BOOLEAN NOT NULL DEFAULT false,
   active BOOLEAN NOT NULL DEFAULT true
 );
 
