@@ -9,10 +9,9 @@ module.exports = (db) => {
       db.query(`SELECT * FROM users WHERE is_admin = true; SELECT * FROM products;`)
       .then(data => {
         const currentUser = req.session.user_id;
-        const adminData = data[0].rows;
         const products = data[1].rows;
-        const templateVars = { products: products, currentUser: currentUser, admin: adminData };
-        //console.log("currentuser: ", templateVars.currentUser)
+        const templateVars = { products, currentUser };
+        //console.log(adminData.is_admin);
         if (!templateVars.currentUser) {
           res.json({result:"Unauthorized Access"})
           }
