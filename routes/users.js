@@ -6,7 +6,7 @@
  */
 
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 
 module.exports = (db) => {
   // GET ------------------------------------------------------------------------
@@ -15,41 +15,35 @@ module.exports = (db) => {
       .then(data => {
         const users = data.rows;
         const currentUser = users[req.session.user_id];
-        console.log("users: ", users);
-        console.log("currentUser: ", currentUser);
-
         res.render("login", currentUser);
         res.json({ users });
       })
       .catch(err => {
         res
-        .status(500)
-        .json({ error: err.message });
+          .status(500)
+          .json({ error: err.message });
       });
-    });
+  });
 
   router.get("/login", (req, res) => {
 
     db.query(`SELECT * FROM users WHERE is_admin = true;`)
-    .then(data => {
-      const currentUser = req.session.user_id;
-      //console.log("data.rows from login", data[0].rows)
-      const templateVars = { currentUser, admin: data.rows }
-      res.render("login", templateVars);
-    })
-    .catch(err => {
-      res
-      .status(500)
-      .json({ error: err.message });
-    });
+      .then(data => {
+        const currentUser = req.session.user_id;
+        const templateVars = { currentUser, admin: data.rows }
+        res.render("login", templateVars);
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
   });
 
   router.get('/login/:id', (req, res) => {
     const currentUser = users[req.session.user_id]
     req.session.user_id = req.params.id;
     const templateVars = { currentUser };
-    console.log("req: ", req)
-    console.log("templateVars: ", templateVars)
     res.render("index", templateVars);
     res.redirect('/');
   });
@@ -58,20 +52,20 @@ module.exports = (db) => {
   // POSTS -------------------------------------------------------------------------
   router.post('/login', (req, res) => {
     db.query(`SELECT * FROM users WHERE email = '${req.body.email}';`)
-    .then(data => {
-      const user = data.rows[0];
-      if (user) {
-      req.session.user_id = user
-      res.redirect("/");
-      } else {
-        res.json({result:"Sorry, you are not a user"})
-      }
-    })
-    .catch(err => {
-      res
-      .status(500)
-      .json({ error: err.message });
-    });
+      .then(data => {
+        const user = data.rows[0];
+        if (user) {
+          req.session.user_id = user
+          res.redirect("/");
+        } else {
+          res.json({ result: "Sorry, you are not a user" })
+        }
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
   });
 
 
@@ -80,6 +74,5 @@ module.exports = (db) => {
     req.session = null;
     res.redirect("/");
   });
-
   return router;
 };

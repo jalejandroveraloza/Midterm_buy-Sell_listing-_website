@@ -1,5 +1,5 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 
 module.exports = (db) => {
 
@@ -17,19 +17,18 @@ module.exports = (db) => {
     }
 
     db.query(queryString)
-    .then(data => {
-      const user = req.session.user_id;
-      const adminData = data[0].rows;
-      const products = data[1].rows;
-      const templateVars = { products: products, currentUser: user, admin: adminData }
-      res.render("search", templateVars)
-    })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
+      .then(data => {
+        const user = req.session.user_id;
+        const adminData = data[0].rows;
+        const products = data[1].rows;
+        const templateVars = { products: products, currentUser: user, admin: adminData }
+        res.render("search", templateVars)
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
   });
-
   return router;
 }

@@ -40,8 +40,6 @@ module.exports = (db) => {
   router.post("/new", (req, res) => {
     const currentUser = req.session.user_id;
     const currentProduct = req.body.prodID;
-    console.log('currentUser:', currentUser);
-    console.log('currentProduct:', currentProduct);
 
     if (!currentUser) {
       return res.status(401).send("<html><body>Please <a href=\"/api/users/login\">login</a> to continue</body></html>\n");
@@ -74,6 +72,5 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
-
   return router;
 };

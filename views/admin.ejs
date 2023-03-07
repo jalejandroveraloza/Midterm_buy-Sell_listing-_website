@@ -4,9 +4,9 @@
 <head>
   <title>Home Page</title>
 
-  <meta charset="UTF-8" >
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
@@ -20,41 +20,44 @@
 </head>
 <title>Admin</title>
 </head>
+
 <body>
 
   <%- include('partials/_header') %>
 
-  <% if (currentUser.is_admin) { %>
-  <main style="margin: 1em;">
-    <h4>Admin</h4>
-    <table class="table">
-        <ul>
-          <li scope="col">Photo</li>
-          <li scope="col">Product</li>
-          <li scope="col">Delete</li>
-          <li scope="col">Mark Item</li>
-        </ul>
-      <tbody>
-        <% for(let product of products) { %>
-          <tr>
-            <td> <img src= <%= product.thumbnail_photo %> </td>
-            <td><a href="/products/<%= product.id %> "><%= product.title %></a></td>
-            <td>
-              <form class= "form-inline" action="/admin/delete" method="POST">
-                <input name="product_id" value="<%=product.id%>" type="hidden">
-                <button type="submit" class="btn btn-primary">Delete</button>
-              </form>
-            </td>
-            <td>
-              <form class= "form-inline" action="/admin/active" method="POST">
-                <input name="product_id" value="<%=product.id%>" type="hidden">
-                <% if (product.active) { %>
-                  <button style="background-color: green;" type="submit" class="btn btn-primary">Sold</button>
-                <% } %>
-              </form>
-            </td>
-          </tr>
+    <% if (currentUser.is_admin) { %>
+      <main style="margin: 1em;">
+        <h4>Admin</h4>
+        <table class="table">
+          <ul>
+            <li scope="col">Photo</li>
+            <li scope="col">Product</li>
+            <li scope="col">Delete</li>
+            <li scope="col">Mark Item</li>
+          </ul>
+          <tbody>
+            <% for(let product of products) { %>
+              <tr>
+                <td> <img src=<%=product.thumbnail_photo %> </td>
+                <td><a href="/products/<%= product.id %> ">
+                    <%= product.title %>
+                  </a></td>
+                <td>
+                  <form class="form-inline" action="/admin/delete" method="POST">
+                    <input name="product_id" value="<%=product.id%>" type="hidden">
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                  </form>
+                </td>
+                <td>
+                  <form class="form-inline" action="/admin/active" method="POST">
+                    <input name="product_id" value="<%=product.id%>" type="hidden">
+                    <% if (product.active) { %>
+                      <button style="background-color: green;" type="submit" class="btn btn-primary">Sold</button>
+                      <% } %>
+                  </form>
+                </td>
+              </tr>
+              <% } %>
+          </tbody>
+        </table>
         <% } %>
-      </tbody>
-    </table>
-    <% } %>

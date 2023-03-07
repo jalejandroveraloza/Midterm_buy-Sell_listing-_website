@@ -15,12 +15,12 @@
         </div>
 
         <!-- if user is an admin -->
-          <% if (currentUser.is_admin) { %>
-            <div class="navbar-nav">
-              <a class="nav-item nav-link" href="/admin">Admin</a>
-              <a class="nav-item nav-link" href="/addListing">Add Product</a>
-            </div>
-            <% } %>
+        <% if (currentUser.is_admin) { %>
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/admin">Admin</a>
+            <a class="nav-item nav-link" href="/addListing">Add Product</a>
+          </div>
+          <% } %>
       </div>
       <div>
         <form class="form-inline login-as" action="/api/users/logout" method="POST">
@@ -37,7 +37,5 @@
           <a class="nav-item nav-link" href="/api/users/login">login</a>
         </div>
         <% } %>
-
-
   </nav>
 </header>

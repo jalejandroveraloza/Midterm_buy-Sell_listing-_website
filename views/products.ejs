@@ -1,75 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/jpg" href="https://i.ibb.co/9bvfZWB/lightkicks.jpg">
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-<link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-<!-- Scripts -->
-<script src="/scripts/app.js"></script>
+  <!-- Scripts -->
+  <script src="/scripts/app.js"></script>
 
-  <title><%= product.title %></title>
+  <title>
+    <%= product.title %>
+  </title>
 </head>
+
 <body>
 
   <%- include('partials/_header'); %>
 
-  <main style="margin: 2em;">
-    <!-- Message if item is added -->
-    <% if (message) { %>
-      <div class="alert alert-secondary" role="alert">
-        <%= message %>
-      </div>
-    <% }%>
+    <main style="margin: 2em;">
+      <!-- Message if item is added -->
+      <% if (message) { %>
+        <div class="alert alert-secondary" role="alert">
+          <%= message %>
+        </div>
+        <% }%>
 
-    <!--Product_id -->
+          <!--Product_id -->
 
-  <div class= "product-id">
-    <div class="card">
-      <img class="card-img-top" src="<%= product.thumbnail_photo %>" alt="Card image cap">
-      <div class="card-body">
-        <% if (!product.active) { %>
-          <div class="sold-banner">SOLD</div>
-        <% } %>
-        <h5 class="card-title"><%= product.title %></h5>
-        <label>Description</label>
-        <p class="card-text"><%= product.description %></p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Brand: <%=product.brand%></li>
-        <li class="list-group-item">Size: <%=product.size%></li>
-        <li class="list-group-item">Price: <%=product.price%></li>
-      </ul>
-    </div>
+          <div class="product-id">
+            <div class="card">
+              <img class="card-img-top" src="<%= product.thumbnail_photo %>" alt="Card image cap">
+              <div class="card-body">
+                <% if (!product.active) { %>
+                  <div class="sold-banner">SOLD</div>
+                  <% } %>
+                    <h5 class="card-title">
+                      <%= product.title %>
+                    </h5>
+                    <label>Description</label>
+                    <p class="card-text">
+                      <%= product.description %>
+                    </p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Brand: <%=product.brand%>
+                </li>
+                <li class="list-group-item">Size: <%=product.size%>
+                </li>
+                <li class="list-group-item">Price: <%=product.price%>
+                </li>
+              </ul>
+            </div>
 
-    <!-- Adding item to favourites -->
-  <div class= buttons-product-id>
-    <div class="add-to-favourites">
-      <form class= "form-inline" action="/favourites/new" method="POST">
-        <input type="hidden" name="prodID" value="<%= product.id %>" />
+            <!-- Adding item to favourites -->
+            <div class=buttons-product-id>
+              <div class="add-to-favourites">
+                <form class="form-inline" action="/favourites/new" method="POST">
+                  <input type="hidden" name="prodID" value="<%= product.id %>" />
 
+                  <button id="fav" type="submit" class="btn btn-outline-dark"> Add to favourites</button>
 
-        <button id="fav" type="submit" class="btn btn-outline-dark"> Add to favourites</button>
+                </form>
+              </div>
 
-      </form>
-    </div>
+              <!-- Contact Form -->
+              <div class="form-group">
+                <form class="form-inline" action="/products/message" method="POST">
+                  <button type="submit" class="btn btn-outline-dark"><a
+                      href="mailto:tyrionlannister@gmail.com?subject=Inquiry About the snowboard listing On .....&body=Hi I saw your listing on .... and I was wondering if your item is still available.">Contact
+                      Seller</a></button>
+                </form>
+              </div>
 
-<!-- Contact Form -->
-    <div class="form-group">
-      <form class="form-inline" action="/products/message" method="POST">
-        <button type="submit" class="btn btn-outline-dark" ><a href="mailto:tyrionlannister@gmail.com?subject=Inquiry About the snowboard listing On .....&body=Hi I saw your listing on .... and I was wondering if your item is still available.">Contact Seller</a></button>
-      </form>
-    </div>
-
-  </div>
- <!-- Bootstrap JS -->
- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            </div>
+            <!-- Bootstrap JS -->
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+              integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+              crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+              integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+              crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+              integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+              crossorigin="anonymous"></script>
 
 </body>
+
 </html>
