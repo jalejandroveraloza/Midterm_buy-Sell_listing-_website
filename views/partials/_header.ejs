@@ -15,11 +15,10 @@
         </div>
 
         <!-- if user is an admin -->
-        <% } if (currentUser) { %>
-          <% if (currentUser.id) { %>
+          <% if (currentUser.is_admin) { %>
             <div class="navbar-nav">
               <a class="nav-item nav-link" href="/admin">Admin</a>
-              <a class="nav-item nav-link" href="/addlisting">Add Product</a>
+              <a class="nav-item nav-link" href="/addListing">Add Product</a>
             </div>
             <% } %>
       </div>
