@@ -33,11 +33,11 @@ router.get("/addListing", (req, res) => {
     const brand = req.body.brand;
     const size = req.body.size;
     const price = req.body.price;
+    const feature = req.body.feature;
 
-
-    const queryParams = [title, description, thumbnail_url, photo_url, brand, size, price];
-    const queryString = `INSERT INTO products (title, description, thumbnail_url, photo_url, brand, size, price)
-    VALUES ($1, $2, $3, $4 ,$5, $6, $7) RETURNING *;`
+    const queryParams = [title, description, thumbnail_url, photo_url, brand, size, price, feature];
+    const queryString = `INSERT INTO products (title, description, thumbnail_url, photo_url, brand, size, price, feature)
+    VALUES ($1, $2, $3, $4 ,$5, $6, $7, $8) RETURNING *;`
 
     db.query(queryString, queryParams)
     .then(data => {
