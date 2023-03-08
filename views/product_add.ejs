@@ -20,10 +20,10 @@
 
     <% if (currentUser.is_admin) { %>
       <main style="margin: 1em;">
-        <h3 class="addshoe-title">Add Snowboard</h3>
-        <div class="add-shoe-form-container">
+        <h3 class="addsnowboard-title">Add Snowboard</h3>
+        <div class="add-snowboard-form-container">
           <!-- Form Starts -->
-          <form class="add-shoe-form" method="POST" action="/addListing">
+          <form class="add-snowboard-form" method="POST" action="/addListing">
             <div class="form-group">
               <input name="title" placeholder="Shoe Name" class="form-control" rows="3"></input>
             </div>
@@ -58,7 +58,7 @@
               </select>
 
             </div>
-            <button type="submit" class="btn btn-primary btn-add-shoe">Submit</button>
+            <button type="submit" class="btn btn-primary btn-add-snowboard">Submit</button>
           </form>
         </div>
         <% } %>
