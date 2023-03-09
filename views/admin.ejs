@@ -18,14 +18,16 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
- <!-- Font awesome -->
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
- integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
- crossorigin="anonymous" referrerpolicy="no-referrer" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
- integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
- crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Bulma CSS-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
+
+  <!-- Font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
+    integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
 
@@ -41,51 +43,51 @@
         <table class="table">
           <div class="wrapper">
             <div class="main">
-          <thead>
-            <tr>
-              <th scope="col">Photo</th>
-              <th scope="col">Product</th>
-              <th scope="col">Delete</th>
-              <th scope="col">Mark Item</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% for(let product of products) { %>
-              <tr>
-                <td> <img src=<%=product.thumbnail_url %> width="200" height="200" > </td>
-                <td><a href="/products/<%= product.id %> ">
-                    <%= product.title %>
-                  </a></td>
-                <td>
-                  <form class="form-inline" action="/admin/delete" method="POST">
-                    <input name="product_id" value="<%=product.id%>" type="hidden">
-                    <button type="submit" class="btn btn-primary">Delete</button>
-                  </form>
-                </td>
-                <td>
-                  <form class="form-inline" action="/admin/sold" method="POST">
-                    <input name="product_id" value="<%=product.id%>" type="hidden">
-                    <% if (product.active) { %>
-                      <button style="background-color: green;" type="submit" class="btn btn-primary">Sold</button>
-                      <% } %>
-                  </form>
-                </td>
-              </tr>
-              <% } %>
-          </tbody>
+              <thead>
+                <tr>
+                  <th scope="col">Photo</th>
+                  <th scope="col">Product</th>
+                  <th scope="col">Delete</th>
+                  <th scope="col">Mark Item</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for(let product of products) { %>
+                  <tr>
+                    <td> <img src=<%=product.thumbnail_url %> width="200" height="200" > </td>
+                    <td><a href="/products/<%= product.id %> ">
+                        <%= product.title %>
+                      </a></td>
+                    <td>
+                      <form class="form-inline" action="/admin/delete" method="POST">
+                        <input name="product_id" value="<%=product.id%>" type="hidden">
+                        <button type="submit" class="btn btn-primary">Delete</button>
+                      </form>
+                    </td>
+                    <td>
+                      <form class="form-inline" action="/admin/sold" method="POST">
+                        <input name="product_id" value="<%=product.id%>" type="hidden">
+                        <% if (product.active) { %>
+                          <button style="background-color: green;" type="submit" class="btn btn-primary">Sold</button>
+                          <% } %>
+                      </form>
+                    </td>
+                  </tr>
+                  <% } %>
+              </tbody>
         </table>
         <% } %>
-      </div>
-    </div>
-
-        <footer class="footer">
-          <div class="content has-text-centered">
-            <p>
-              <strong>SnowShop</strong> by <a>Andre Moura, Eli Colussi and Jorge Vera</a>.
-              <a>Copyright @ 2023 All Rights Reserved</a>.
-              <i class="fa-brands fa-facebook"></i>
-              <i class="fa-brands fa-twitter"></i>
-              <i class="fa-brands fa-instagram"></i>
-            </p>
           </div>
-        </footer>
+          </div>
+
+          <footer class="footer">
+            <div class="content has-text-centered">
+              <p>
+                <strong>SnowShop</strong> by <a>Andre Moura, Eli Colussi and Jorge Vera</a>.
+                <a>Copyright @ 2023 All Rights Reserved</a>.
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-instagram"></i>
+              </p>
+            </div>
+          </footer>
