@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
+
 <header>
   <nav class="navbar navbar-expand-md navbar-dark">
     <a class="navbar-brand" href="/">SnowShop</a>
@@ -19,6 +20,7 @@
           <div class="navbar-nav">
             <a class="nav-item nav-link" href="/admin">Admin</a>
             <a class="nav-item nav-link" href="/addListing">Add Product</a>
+            <a class="nav-item nav-link" href="/search" role="button">Search</a>
           </div>
           <% } %>
       </div>
@@ -26,6 +28,7 @@
         <form class="form-inline login-as" action="/api/users/logout" method="POST">
           <div style="margin-right: 7px;">
             <%= currentUser.email %>
+
           </div>
           <button type="submit" class="header-btn">Logout</button>
         </form>
@@ -34,7 +37,7 @@
       <!-- if user is logged out -->
       <% } else { %>
         <div class="navbar-nav">
-          <a class="nav-item nav-link" href="/api/users/login">login</a>
+          <a class="nav-item nav-link" href="/api/users/login">Login</a>
         </div>
         <% } %>
   </nav>

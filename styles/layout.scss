@@ -1,6 +1,421 @@
 // See: https://sass-lang.com/
 
-body,
-html {
+$background-texture-1-hex: #011140;
+$background-texture-2-hex:#011126;
+$background-texture-3-hex: #101E26;
+$background-texture-4-hex: #94A1A6;
+$background-texture-5-hex: #FFF;
+
+body {
+  background-color: $background-texture-5-hex;
+
+  h1 {
+    color: #244751;
+  }
+
+
+}
+
+
+/* NavBar */
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #304cc7;
+}
+
+.navbar-brand {
+  margin-right: 3;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+  li {
+    margin-left: 15px;
+  }
+
+
+.login-as{
+  color: white;
+  font-size: 16px;
+}
+
+
+.header-btn {
+  border: solid white 1px;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  padding: 1px 25px;
+  border-radius: 8px;
+  margin-left: 15px;
+  transition: 0.2s ease-in-out;
+}
+
+.header-btn:hover {
+  background: white;
+  color: #6d6d6d;
+}
+
+/* Index page */
+
+.card {
+  border: none;
+}
+
+.index-container {
+  width: 100%;
+  max-width: 1260px;
+  margin: 0 auto;
+}
+
+.sold-banner {
+  background: red;
+  color: white;
+  width: 100%;
+  max-width: 150px;
+  margin: 0 auto;
+}
+
+.jumbotron-fluid {
+  padding: 1rem 2rem;
+}
+
+.jumbotron-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+
+  @media(max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.jumbotron-container_image {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 12px;
+
+  @media(max-width: 768px) {
+    width: 100%;
+  }
+
+  img {
+    width: 70%;
+  }
+}
+
+.jumbotron-container_content {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 12px;
+
+  .display-4 {
+    margin-bottom: 10px;
+    margin-top: -35px;
+  }
+
+  .lead {
+    margin-bottom: 45px;
+  }
+
+  @media(max-width: 768px) {
+    width: 75%;
+    align-items: center;
+  }
+}
+
+.search-button {
+  width: 40%;
+  background: transparent;
+  color: black;
+  border: solid 1px black;
+}
+
+.featured_sneakers{
+  display: flex;
+  flex-direction: row;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  width: 100%;
+  flex-wrap: wrap;
+
+  .card {
+    width: calc(100% / 3 - 24px);
+    margin: 12px;
+    text-align: center;
+
+    .card-img-top {
+      height: 100%;
+    }
+  }
+}
+
+.card-body .btn {
+  align-self: end;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 50px;
+  margin: -20px auto;
+}
+
+.all_snowboards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  width: 100%;
+  text-align: center;
+
+  .card {
+    width: calc(100% / 4 - 24px);
+    margin: 12px;
+  }
+
+  .card-body {
+    .btn {
+      align-self: end;
+    }
+  }
+}
+
+/* Product page_id */
+.product-id{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+
+  .card-body {
+    padding-top: 0;
+  }
+  .sold-banner {
+    padding: 5px 10px;
+    margin-bottom: 45px;
+    text-align: center;
+  }
+}
+
+.buttons-product-id{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+  .form-inline{
+    align-items: center;
+  }
+
+  a{
+    color: black;
+  }
+
+  a:hover {
+    color: white;
+  }
+
+  .add-to-favourites {
+    margin: 12px;
+  }
+
+  .form-group {
+    margin: 12px;
+  }
+}
+
+/* Product add shoe */
+
+.addsnowboard-title {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.add-snowboard-form-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.custom-select-sm{
+  margin-top: 1rem;
+}
+
+.featured-row {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-snowboard-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-add-snowboard {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100px;
+}
+
+/*search page*/
+
+.search-title {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.search-form{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.snowboard-filter {
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  width: 100%;
+  text-align: center;
+
+  .card {
+    width: calc(100% / 4 - 24px);
+    margin: 12px;
+  }
+}
+
+/*fave page*/
+
+.favourites-img {
+  border: solid;
+}
+
+a#fav{
+  background: url('../images/addFavourite.png');
+  display: block;
+  width: 48px;
+  height: 48px;
+ }
+
+
+ a#fav.active{
+  background: url('../images/addFavourite-hover.png');
+ }
+
+
+// Large
+
+
+@media only screen and (min-width: 1024px) {
+  .btn{
+    min-width: 168px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .all_snowboard {
+    .card {
+      width: calc(100% / 3 - 24px);
+      margin: 12px;
+    }
+  }
+
+  .snowboard-filter {
+    .card {
+      width: calc(100% / 3 - 24px);
+      margin: 12px;
+    }
+  }
+
+  .featured_snowboards {
+    .card {
+      width: calc(100% / 3 - 24px);
+      margin: 12px;
+    }
+  }
+
+  .btn{
+    font-size: 12px;
+    min-width: 100px;
+  }
+}
+
+// Medium
+@media only screen and (max-width: 768px) {
+  .featured_snowboards {
+    .card {
+      .card-img-top {
+        height: auto;
+      }
+    }
+  }
+}
+
+// Mobile
+@media only screen and (max-width: 600px) {
+  .all_snowboards {
+    .card {
+      width: calc(100% - 24px);
+      margin: 12px;
+    }
+  }
+
+  .snowboard-filter {
+    .card {
+      width: calc(100% - 24px);
+      margin: 12px;
+    }
+  }
+
+  .featured_snowboards {
+    .card {
+      width: calc(100% - 24px);
+      margin: 12px;
+    }
+  }
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #eee;
+  padding: 20px;
+}
+
+
+html, body {
+  height: 100%;
   margin: 0;
+  padding: 0;
+}
+
+/* Set the wrapper to flexbox */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+/* Set the main content to grow */
+.main {
+  flex: 1;
+  padding: 20px;
 }

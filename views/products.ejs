@@ -14,6 +14,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@1,300&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
+
+   <!-- Font awesome -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+   integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+   crossorigin="anonymous" referrerpolicy="no-referrer" />
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
+   integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
+   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   <!-- Scripts -->
   <script src="/scripts/app.js"></script>
 
@@ -38,7 +48,7 @@
 
           <div class="product-id">
             <div class="card">
-              <img class="card-img-top" src="<%= product.thumbnail_photo %>" alt="Card image cap">
+              <img class="card-img-top" src="<%= product.thumbnail_url %>" alt="Card image cap">
               <div class="card-body">
                 <% if (!product.active) { %>
                   <div class="sold-banner">SOLD</div>
@@ -95,4 +105,15 @@
 
 </body>
 
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <strong>SnowShop</strong> by <a>Andre Moura, Eli Colussi and Jorge Vera</a>.
+      <a>Copyright @ 2023 All Rights Reserved</a>.
+      <i class="fa-brands fa-facebook"></i>
+      <i class="fa-brands fa-twitter"></i>
+      <i class="fa-brands fa-instagram"></i>
+    </p>
+  </div>
+</footer>
 </html>
