@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/jpg" href="https://i.ibb.co/9bvfZWB/lightkicks.jpg">
+
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
@@ -35,72 +35,70 @@
   <header>
     <%- include('partials/_header') %>
   </header>
-  <div style="text-align: center; background-color: rgba(198, 193, 193, 0.21); padding: 20px 0px; margin-bottom: 10px;">
+  <div style="text-align: center; background-color: rgba(198, 193, 193, 0.21); padding: 20px 0px; margin-bottom: 40px;">
     <h1 style="font-weight: bold; text-transform: uppercase;">It's Time to Shred</h1>
     <h5 class="title is-5">Get a Snowboard for any occasion.</h5>
   </div>
 
 
-  <div class="wrapper">
-
-    <% for (let product of products) { %>
-      <% if(product.feature) { %>
-        <div class="index-container">
-          <h4 class="title is-4">Featured Releases</h4>
+  <!-- <div class="wrapper"> -->
+    <div class="index-container">
+      <h4 class="title is-4">Featured Releases</h4>
+      <div class="all_snowboards">
+      <% for (let product of products) { %>
+        <% if(product.feature) { %>
           <div class="card" style="width: 22%; margin-bottom: 50px; text-align: center;">
             <div style="position: relative; display: inline-block; height: 250px;">
               <img class="h-100" src="<%= product.thumbnail_url %>" alt="Card image cap">
               <% if (!product.active) { %>
-                <div class=""
-                  style="position: absolute; top: 40%; left: 0; width: 100%; opacity: 0.7; background-color: red; color: white; padding: 5px; font-size: 16px; font-weight: bold;">
-                  SOLD</div>
+                <div class=""style="position: absolute; top: 40%; left: 0; width: 100%; opacity: 0.7; background-color: red; color: white; padding: 5px; font-size: 16px; font-weight: bold;">SOLD</div>
                 <% } %>
             </div>
             <div class="card-body">
               <h6 class="title is-6" style="height: 30px;">
                 <%= product.title %>
               </h6>
-
-              <p style="padding-bottom: 10px; font-weight: bold; color: darkslategray;"><i> $<%= product.price%></i>
-              </p>
+              <p style="padding-bottom: 10px; font-weight: bold; color: darkslategray;"><i> $<%= product.price%></i> </p>
               <a href="http://localhost:8080/products/<%=product.id%>" class="button is-info is-focused">See Product</a>
-
             </div>
           </div>
-        </div>
-        <% } %>
           <% } %>
-
-
-<div class="index-container">
-  <h4 class="title is-4">All boards</h4>
-  <div class="all_snowboards">
-    <% for (let product of products) { %>
-      <div class="card" style="width: 22%; margin-bottom: 50px;">
-        <div style="position: relative; display: inline-block; height: 250px;">
-          <img class="h-100" src="<%= product.thumbnail_url %>" alt="Card image cap">
-          <% if (!product.active) { %>
-            <div style="position: absolute; top: 40%; left: 0; width: 100%; opacity: 0.7; background-color: red; color: white; padding: 5px; font-size: 16px;">SOLD
-            </div>
           <% } %>
-        </div>
-        <div class="card-body">
-          <h6 class="title is-6" style="height: 30px;">
-            <%= product.title %>
-          </h6>
-          <p style="padding-bottom: 10px; font-weight: bold; color: darkslategray;">
-            <i> $<%= product.price%></i>
-          </p>
-          <a href="http://localhost:8080/products/<%=product.id%>" class="button is-info is-focused">See
-            Product
-          </a>
-        </div>
-      </div>
-    <% } %>
+    </div>
   </div>
-</div>
 
-</div>
+
+        <div class="index-container">
+          <h4 class="title is-4">All boards</h4>
+          <div class="all_snowboards">
+            <% for (let product of products) { %>
+              <div class="card" style="width: 22%; margin-bottom: 50px;">
+                <div style="position: relative; display: inline-block; height: 250px;">
+                  <img class="h-100" src="<%= product.thumbnail_url %>" alt="Card image cap">
+                  <% if (!product.active) { %>
+                    <div
+                      style="position: absolute; top: 40%; left: 0; width: 100%; opacity: 0.7; background-color: red; color: white; padding: 5px; font-size: 16px;">
+                      SOLD
+                    </div>
+                    <% } %>
+                </div>
+                <div class="card-body">
+                  <h6 class="title is-6" style="height: 40px;">
+                    <%= product.title %>
+                  </h6>
+                  <p style="padding-bottom: 10px; font-weight: bold; color: darkslategray;">
+                    <i> $<%= product.price%></i>
+                  </p>
+                  <a href="http://localhost:8080/products/<%=product.id%>" class="button is-info is-focused">See
+                    Product
+                  </a>
+                </div>
+              </div>
+              <% } %>
+          </div>
+        </div>
+
+  </div>
 
 
   <footer class="footer">
