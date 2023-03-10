@@ -41,57 +41,55 @@
             </div>
             <button class="btn btn-dark" type="submit">Filter</button>
           </div>
-
-
         </form>
       </div>
 
 
       <div class="board-filter">
         <% for (let product of products) { %>
-          <div class="card">
-            <img class="card-img-top shoe_image" src="<%= product.thumbnail_url %>" alt="Card image cap">
-            <% if (!product.active) { %>
-              <div class="sold-banner">SOLD</div>
-              <% } %>
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <%= product.title %>
-                  </h5>
-                  <p class="card-text">
-                    <%= product.description %>
-                  </p>
-                  <p class="card-text"> $<%= product.price%>
-                  </p>
-                  <a href="http://localhost:8080/products/<%=product.id%>" class="btn btn-dark">See Product</a>
+          <div class="card" style="background-color: white !important; margin-bottom: 10px; margin-top: 15px; padding: 10px;">
+            <div style="display: flex; flex-direction: row; ">
+              <div style="display: flex; flex-direction: column; width: 250px">
+                <img class="h-75" src="<%= product.thumbnail_url %>" width="245px" height="245px" alt="Card image cap">
+                <% if (!product.active) { %>
+                  <div class="" style="text-align: center; font-weight: bold; padding: 4px; background-color: red; color: white;">SOLD</div>
+                  <% } %>
+              </div>
+              <div style="width: 70%; padding-left: 10px;">
+                <h4 class="card-title" style="font-weight: bold; font-size: 20px;">
+                  <%= product.title %>
+                </h4>
+                <p class="card-text" style="height: 85px;">
+                  <%= product.description %>
+                </p>
+                <p class="card-text" style="font-weight: bold; margin: 5px 0px ;"> $<%= product.price%>
+                </p>
+                <div style="margin-top: 10px;">
+                  <a href="http://localhost:8080/products/<%=product.id%>" class="button is-info is-focused">See
+                    Product</a>
                 </div>
+              </div>
+            </div>
           </div>
-          <% } %>
       </div>
+      <% } %>
+        </div>
+    </main>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>SnowShop</strong> by <a>Andre Moura, Eli Colussi and Jorge Vera</a>.
+          <a>Copyright @ 2023 All Rights Reserved</a>.
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-instagram"></i>
+        </p>
+      </div>
+    </footer>
 
 
 
-      <!-- Bootstrap JS -->
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
 
 </body>
 
-<footer class="footer">
-  <div class="content has-text-centered">
-    <p>
-      <strong>SnowShop</strong> by <a>Andre Moura, Eli Colussi and Jorge Vera</a>.
-      <a>Copyright @ 2023 All Rights Reserved</a>.
-      <i class="fa-brands fa-facebook"></i>
-      <i class="fa-brands fa-twitter"></i>
-      <i class="fa-brands fa-instagram"></i>
-    </p>
-  </div>
-</footer>
+</html>
