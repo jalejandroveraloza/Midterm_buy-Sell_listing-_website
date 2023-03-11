@@ -1,5 +1,63 @@
-LHL Node Skeleton
+Snow Shop Website
 =========
+
+This is a Buy/Sell Listing Website.
+An app where you can put different types of snowboards up for sale. This let buyers find the items they are looking for, and easily contact sellers via email.
+
+Users Can:
+
+- users can see featured items on the main feed
+- users can filter items by price,
+- users can add favourite items to save it for later, and access a favourites page specific for that user
+- users can send email via the "Contact Seller" button to send an email directly to the seller
+
+Admins Can:
+
+- post items, which can be seen by other users
+- remove items from the site
+- mark items as SOLD, which will be visible throughout the website 
+- mark items as "Featured or not Featured" and will show in the top of the list in the main feed
+
+
+Other Features:
+
+- If a user try to access the http://localhost:8080/admin, or http://localhost:8080/addListing, without being an admin, the user will not be able to access the content 
+- If a user doesn't exist in the database and try to login, an error message will show in the screen : "sorry you are not a user".
+- Only users from our database can login. 
+- If the user is also an admin, the admin has access to "My favourites", "Admin" and "Add Product" and "Search". If the user is not an admin, the "Admin" and "Add Product" sections won't show up in the header.
+- Once a user logged in, the email@ is showing in the header.
+- By clicking on logout, the user can logout.
+
+
+## Screenshots
+
+#### Main Page
+!["Screenshot of  the Main Page"](https://github.com/elodiebhs/Buy-Sell-Website/blob/master/docs/main_1.png)
+
+#### Featured Boards on the Main Page
+!["Screenshot of the featured boards on the main page"](https://github.com/elodiebhs/Buy-Sell-Website/blob/master/docs/main_2.png)
+
+#### All Boards on  the Main Page
+!["Screenshot of All boards on the main page"](https://github.com/elodiebhs/Buy-Sell-Website/blob/master/docs/main_3.png)
+
+#### My Favourites section
+!["Screenshot of My Favourites section"](https://github.com/elodiebhs/Buy-Sell-Website/blob/master/docs/my_favourites.png)
+
+#### Admin section
+!["Screenshot of the Admin section"](https://github.com/elodiebhs/Buy-Sell-Website/blob/master/docs/Admin_page.png)
+
+#### Add Products section
+!["Screenshot of the Add products section"](https://github.com/elodiebhs/Buy-Sell-Website/blob/master/docs/Add_products.png)
+
+#### Login Page
+!["Screenshot of the Login Page"](https://github.com/elodiebhs/Buy-Sell-Website/blob/master/docs/login.png)
+
+#### Header (Admin)
+!["Screenshot of the user logged in as Admin"](https://github.com/elodiebhs/Buy-Sell-Website/blob/master/docs/Admin%20access.png)
+
+#### Header (User)
+!["Screenshot of the user logged in as not Admin"](https://github.com/elodiebhs/Buy-Sell-Website/blob/master/docs/not%20admin.png)
+
 
 ## Project Setup
 
@@ -42,3 +100,14 @@ The following steps are only for _one_ of the group members to perform.
 - Node 10.x or above
 - NPM 5.x or above
 - PG 6.x
+- Nodemon
+- Morgan
+- Express
+- Cookie-session
+- body-parser
+- ejs
+- node-sass-middleware
+- Bulma
+- Chalk
+- Prettier
+- Dotenv

@@ -12,8 +12,6 @@ CREATE TABLE users (
   is_admin BOOLEAN NOT NULL DEFAULT false
 );
 
-
-
 CREATE TABLE products (
   id SERIAL PRIMARY KEY NOT NULL,
   title VARCHAR(255) NOT NULL,

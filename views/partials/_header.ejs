@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-
 <header>
   <nav class="navbar navbar-expand-md navbar-dark">
     <a class="navbar-brand" href="/">SnowShop</a>
@@ -24,11 +23,12 @@
           </div>
           <% } %>
       </div>
+
       <div>
         <form class="form-inline login-as" action="/api/users/logout" method="POST">
           <div style="margin-right: 7px;">
+            <!-- If user is Logged in, is going to give the option to logout -->
             <%= currentUser.email %>
-
           </div>
           <button type="submit" class="header-btn">Logout</button>
         </form>

@@ -4,11 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/jpg" href="https://i.ibb.co/9bvfZWB/lightkicks.jpg">
+
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,22 +35,16 @@
 <body>
 
   <%- include('partials/_header'); %>
-
     <main style="margin: 2em;">
-      <!-- Message if item is added -->
-      <% if (message) { %>
-        <div class="alert alert-secondary" role="alert">
-          <%= message %>
-        </div>
-        <% }%>
 
           <!--Product_id -->
-
           <div class="product-id">
             <div class="card">
               <div class="card-body">
                 <div style="position: relative; display: inline-block; height: 550px;">
                   <img class="h-100"  src="<%= product.thumbnail_url %>" alt="Card image cap">
+
+                <!-- If product is not active, mark as SOLD -->
                   <% if (!product.active) { %>
                     <div class="" style="position: absolute; top: 40%; left: 0; width: 100%; opacity: 0.7; background-color: red; color: white; padding: 5px; font-size: 22px; font-weight: bold; text-align: center;">SOLD</div>
                   <% } %>
@@ -77,9 +70,7 @@
               <div class="add-to-favourites">
                 <form class="form-inline" action="/favourites/new" method="POST">
                   <input type="hidden" name="prodID" value="<%= product.id %>" />
-
                   <button id="fav" type="submit" class="btn btn-outline-dark"> Add to favourites</button>
-
                 </form>
               </div>
             </div>
@@ -87,9 +78,7 @@
               <!-- Contact Form -->
               <div class="form-group">
                 <form class="form-inline" action="/products/message" method="POST">
-                  <button type="submit" class="btn btn-outline-dark"><a
-                      href="mailto:tyrionlannister@gmail.com?subject=Inquiry About the snowboard listing On .....&body=Hi I saw your listing on .... and I was wondering if your item is still available.">Contact
-                      Seller</a></button>
+                  <button type="submit" class="btn btn-outline-dark"><a href="mailto:tyrionlannister@gmail.com?subject=Inquiry About the snowboard listing On .....&body=Hi I saw your listing on .... and I was wondering if your item is still available.">Contact Seller</a></button>
                 </form>
               </div>
 
@@ -105,7 +94,5 @@
                 </p>
               </div>
             </footer>
-
 </body>
-
 </html>

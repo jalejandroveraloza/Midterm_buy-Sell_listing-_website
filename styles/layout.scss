@@ -2,9 +2,9 @@
 
 $background-texture-1-hex: #011140;
 $background-texture-2-hex: #011126;
-$background-texture-3-hex: #101E26;
-$background-texture-4-hex: #94A1A6;
-$background-texture-5-hex: #FFF;
+$background-texture-3-hex: #101e26;
+$background-texture-4-hex: #94a1a6;
+$background-texture-5-hex: #fff;
 
 body {
   background-color: $background-texture-5-hex;
@@ -12,10 +12,7 @@ body {
   h1 {
     color: #244751;
   }
-
-
 }
-
 
 /* NavBar */
 .navbar {
@@ -38,12 +35,10 @@ li {
   margin-left: 15px;
 }
 
-
 .login-as {
   color: white;
   font-size: 16px;
 }
-
 
 .header-btn {
   border: solid white 1px;
@@ -90,7 +85,7 @@ li {
   width: 100%;
   flex-direction: row;
 
-  @media(max-width: 768px) {
+  @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
   }
@@ -103,7 +98,7 @@ li {
   justify-content: center;
   margin: 12px;
 
-  @media(max-width: 768px) {
+  @media (max-width: 768px) {
     width: 100%;
   }
 
@@ -128,7 +123,7 @@ li {
     margin-bottom: 45px;
   }
 
-  @media(max-width: 768px) {
+  @media (max-width: 768px) {
     width: 75%;
     align-items: center;
   }
@@ -307,20 +302,17 @@ li {
 }
 
 a#fav {
-  background: url('../images/addFavourite.png');
+  background: url("../images/addFavourite.png");
   display: block;
   width: 48px;
   height: 48px;
 }
 
-
 a#fav.active {
-  background: url('../images/addFavourite-hover.png');
+  background: url("../images/addFavourite-hover.png");
 }
 
-
 // Large
-
 
 @media only screen and (min-width: 1024px) {
   .btn {
@@ -398,7 +390,6 @@ a#fav.active {
   background-color: #eee;
   padding: 20px;
 }
-
 
 html,
 body {
