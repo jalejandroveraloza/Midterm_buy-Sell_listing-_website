@@ -32,31 +32,31 @@ Other Features:
 ## Screenshots
 
 #### Main Page
-!["Screenshot of  the Main Page"](https://github.com/elodiebhs/Buy-Sell-Website/blob/master/docs/main_1.png)
+!["Screenshot of  the Main Page"](https://github.com/jalejandroveraloza/Midterm_buy-Sell_listing-_website/blob/master/doc/Main%20page.jpeg)
 
 #### Featured Boards on the Main Page
-!["Screenshot of the featured boards on the main page"](https://github.com/elodiebhs/Buy-Sell-Website/blob/master/docs/main_2.png)
+!["Screenshot of the featured boards on the main page"](https://github.com/jalejandroveraloza/Midterm_buy-Sell_listing-_website/blob/master/doc/featuredprod.jpg)
 
 #### All Boards on  the Main Page
-!["Screenshot of All boards on the main page"](https://github.com/elodiebhs/Buy-Sell-Website/blob/master/docs/main_3.png)
+!["Screenshot of All boards on the main page"](https://github.com/jalejandroveraloza/Midterm_buy-Sell_listing-_website/blob/master/doc/Allboards.jpeg)
 
 #### My Favourites section
-!["Screenshot of My Favourites section"](https://github.com/elodiebhs/Buy-Sell-Website/blob/master/docs/my_favourites.png)
+!["Screenshot of My Favourites section"](https://github.com/jalejandroveraloza/Midterm_buy-Sell_listing-_website/blob/master/doc/Myfavourites.jpeg)
 
 #### Admin section
-!["Screenshot of the Admin section"](https://github.com/elodiebhs/Buy-Sell-Website/blob/master/docs/Admin_page.png)
+!["Screenshot of the Admin section"](https://github.com/jalejandroveraloza/Midterm_buy-Sell_listing-_website/blob/master/doc/admin.jpeg)
 
 #### Add Products section
-!["Screenshot of the Add products section"](https://github.com/elodiebhs/Buy-Sell-Website/blob/master/docs/Add_products.png)
+!["Screenshot of the Add products section"](https://github.com/jalejandroveraloza/Midterm_buy-Sell_listing-_website/blob/master/doc/Addlisting.jpeg)
 
 #### Login Page
-!["Screenshot of the Login Page"](https://github.com/elodiebhs/Buy-Sell-Website/blob/master/docs/login.png)
+!["Screenshot of the Login Page"](https://github.com/jalejandroveraloza/Midterm_buy-Sell_listing-_website/blob/master/doc/Login.jpeg)
 
 #### Header (Admin)
-!["Screenshot of the user logged in as Admin"](https://github.com/elodiebhs/Buy-Sell-Website/blob/master/docs/Admin%20access.png)
+!["Screenshot of the user logged in as Admin"](https://github.com/jalejandroveraloza/Midterm_buy-Sell_listing-_website/blob/master/doc/Headeradmin.jpeg)
 
 #### Header (User)
-!["Screenshot of the user logged in as not Admin"](https://github.com/elodiebhs/Buy-Sell-Website/blob/master/docs/not%20admin.png)
+!["Screenshot of the user logged in as not Admin"](https://github.com/jalejandroveraloza/Midterm_buy-Sell_listing-_website/blob/master/doc/Headeruser.jpeg)
 
 
 ## Project Setup
